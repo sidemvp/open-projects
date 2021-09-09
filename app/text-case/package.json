@@ -17,11 +17,19 @@
     "@chakra-ui/react": "1.6.7",
     "@emotion/react": "11.4.1",
     "@emotion/styled": "11.3.0",
+    "camel-case": "4.1.2",
+    "capital-case": "1.0.4",
     "framer-motion": "4.1.17",
+    "lower-case": "2.0.2",
     "mvp-common-components": "workspace:0.1.0",
     "next": "11.1.2",
+    "param-case": "3.0.4",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "sentence-case": "3.0.4",
+    "snake-case": "3.0.4",
+    "swap-case": "2.0.2",
+    "upper-case": "2.0.2"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "11.1.2",
