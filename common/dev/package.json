@@ -1,0 +1,8 @@
+{
+  "name": "mvp-common-dev",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": "14.x"
+  }
+}
