@@ -1,0 +1,11 @@
+{
+  "name": "@sidemvp/open-projects",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "boot": "pnpm install && pnpm list --depth -1 --filter mvp-* --recursive --json > workspace-packages.json"
+  },
+  "engines": {
+    "node": "14.x"
+  }
+}

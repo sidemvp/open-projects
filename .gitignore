@@ -196,3 +196,5 @@ $RECYCLE.BIN/
 
 .idea
 .vscode
+
+workspace-packages.json
