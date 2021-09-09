@@ -1,0 +1,18 @@
+{
+  "extends": "./node_modules/mvp-common-dev/base-tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "mvp-app-text-case/*": ["*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "node_modules/mvp-*/src/**/*.ts",
+    "node_modules/mvp-*/src/**/*.tsx",
+    "test/**/*.ts"
+  ],
+  "exclude": []
+}
