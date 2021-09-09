@@ -8,10 +8,10 @@
   "scripts": {
     "format": "eslint --cache --cache-strategy content --fix .",
     "tsc": "tsc --incremental --noEmit",
+    "test": "jest",
     "dev": "tsc --incremental --noEmit && cross-env NODE_ENV=development next -p 7000",
     "analyze": "cross-env NODE_ENV=production ANALYZE=true next build",
-    "build": "cross-env NODE_ENV=production next build",
-    "test": "jest"
+    "build": "npm run test && cross-env NODE_ENV=production next build"
   },
   "dependencies": {
     "@chakra-ui/react": "1.6.7",
