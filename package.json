@@ -3,9 +3,29 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "boot": "pnpm install && pnpm list --depth -1 --filter mvp-* --recursive --json > workspace-packages.json"
+    "boot": "pnpm install && pnpm list --depth -1 --filter mvp-* --recursive --json > workspace-packages.json",
+    "format": "eslint --plugin file-progress --rule \"file-progress/activate: 1\" --cache --cache-strategy content --fix ."
   },
   "engines": {
     "node": "14.x"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "4.31.0",
+    "@typescript-eslint/parser": "4.31.0",
+    "babel-eslint": "10.1.0",
+    "eslint": "7.32.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-config-react-app": "6.0.0",
+    "eslint-plugin-file-progress": "1.1.1",
+    "eslint-plugin-flowtype": "5.9.2",
+    "eslint-plugin-import": "2.24.2",
+    "eslint-plugin-jsx-a11y": "6.4.1",
+    "eslint-plugin-no-null": "1.0.2",
+    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-react": "7.25.1",
+    "eslint-plugin-react-hooks": "4.2.0",
+    "eslint-plugin-simple-import-sort": "7.0.0",
+    "prettier": "2.3.2",
+    "react": "17.0.2"
   }
 }
