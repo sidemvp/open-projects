@@ -1,4 +1,4 @@
-import { Button, Container, Flex, Heading, Stack, Textarea } from '@chakra-ui/react'
+import { Button, Container, Flex, Heading, Stack, Text, Textarea } from '@chakra-ui/react'
 import { NextPage } from 'next'
 import NextHead from 'next/head'
 import { ChangeEvent, FunctionComponent, useState } from 'react'
@@ -90,7 +90,10 @@ export const HomePage: NextPage = () => {
       </NextHead>
       <Container maxWidth='container.lg' marginY={6}>
         <Stack spacing={4}>
-          <Heading>Text Case</Heading>
+          <Stack spacing={1}>
+            <Heading>Text Case</Heading>
+            <Text fontSize='xl'>Change text to any case.</Text>
+          </Stack>
           <TextInput text={text} currentTextCase={currentTextCase} handleTextChange={handleTextChange} />
           <ActionGroup
             currentTextCase={currentTextCase}
