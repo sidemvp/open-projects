@@ -1,6 +1,6 @@
 import { capitalCase as transformCapitalCase } from 'capital-case'
 
-import { TextCase } from 'mvp-app-text-case/src/text-case/text-case'
+import { TextCase } from 'mvp-app-text-case/src/text-case/text-case-type'
 
 export const capitalCase: TextCase = {
   name: 'Capital Case',
