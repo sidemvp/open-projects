@@ -1,7 +1,7 @@
 import NextHead from 'next/head'
 import { FunctionComponent } from 'react'
 
-export const AppHead: FunctionComponent = () => {
+export const AppMeta: FunctionComponent = () => {
   return (
     <NextHead>
       <meta name='viewport' content='width=device-width, initial-scale=1' />

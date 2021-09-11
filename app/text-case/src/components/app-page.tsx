@@ -1,7 +1,7 @@
 import { ChakraProvider } from '@chakra-ui/react'
 import { AppProps } from 'next/app'
 
-import { AppHead } from 'mvp-common-components/src/app-head'
+import { AppMeta } from 'mvp-common-components/src/app-meta'
 import { createAppTheme } from 'mvp-common-components/src/app-theme'
 import { useOrientationEffect } from 'mvp-common-components/src/window-hooks'
 
@@ -19,7 +19,7 @@ export const AppPage = ({ Component, pageProps }: AppProps): JSX.Element => {
 
   return (
     <ChakraProvider theme={appTheme}>
-      <AppHead />
+      <AppMeta />
       <Component {...pageProps} />
     </ChakraProvider>
   )
