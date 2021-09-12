@@ -6,12 +6,18 @@ import { FunctionComponent } from 'react'
 import { Project } from 'mvp-app-project-listing/src/project/project'
 import { allProjects } from 'mvp-app-project-listing/src/project/project-registry'
 
+const resolveUrl = (url: string) => {
+  const envDomain = process.env.VERCEL_ENV === 'preview' ? 'demo' : undefined
+
+  return `https://${envDomain ? [envDomain, url].join('.') : url}`
+}
+
 interface ProjectCardProps {
   readonly project: Project
 }
 
 const ProjectCard: FunctionComponent<ProjectCardProps> = ({ project }) => {
-  const projectUrl = `https://${project.id}.mvp.onl`
+  const projectUrl = resolveUrl(`${project.id}.mvp.onl`)
 
   return (
     <LinkBox padding={4}>
