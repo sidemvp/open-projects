@@ -45,12 +45,12 @@ const ActionGroup: FunctionComponent<ActionGroupProps> = ({
           onClick={handleTextCaseToggle(textCase)}
           colorScheme='primary'
           width={160}
-          margin={1}
+          margin={2}
         >
           {textCase.name}
         </Button>
       ))}
-      <Button variant='outline' width={160} margin={1} onClick={handleTextClear}>
+      <Button variant='outline' width={160} margin={2} onClick={handleTextClear}>
         Clear
       </Button>
     </Flex>
