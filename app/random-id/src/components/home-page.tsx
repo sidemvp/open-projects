@@ -2,22 +2,26 @@ import { Box, Button, Container, Flex, Heading, Stack, Text } from '@chakra-ui/r
 import { nanoid } from 'nanoid'
 import { NextPage } from 'next'
 import NextHead from 'next/head'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { AppFooter } from 'mvp-common-components/src/app-footer'
 
 const useHomePage = () => {
-  const [id, setId] = useState(() => nanoid())
+  const [id, setId] = useState('')
 
-  const handleGenerateClick = () => {
+  const generateId = () => {
     setId(nanoid())
   }
 
-  return { id, handleGenerateClick }
+  useEffect(() => {
+    generateId()
+  }, [])
+
+  return { id, generateId }
 }
 
 export const HomePage: NextPage = () => {
-  const { id, handleGenerateClick } = useHomePage()
+  const { id, generateId } = useHomePage()
 
   return (
     <>
@@ -34,7 +38,7 @@ export const HomePage: NextPage = () => {
             {id}
           </Box>
           <Flex wrap='wrap' justifyContent='center'>
-            <Button onClick={handleGenerateClick} colorScheme='primary' margin={1}>
+            <Button onClick={generateId} colorScheme='primary' margin={1}>
               Generate
             </Button>
           </Flex>
