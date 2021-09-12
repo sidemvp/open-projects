@@ -10,7 +10,7 @@ import { AppFooter } from 'mvp-common-components/src/app-footer'
 interface TextInputProps {
   readonly text: string
   readonly currentTextCase: TextCase | undefined
-  readonly handleTextChange: (event: ChangeEvent<HTMLInputElement>) => void
+  readonly handleTextChange: (event: ChangeEvent<HTMLTextAreaElement>) => void
 }
 
 const TextInput: FunctionComponent<TextInputProps> = ({ text, currentTextCase, handleTextChange }) => {
@@ -61,7 +61,7 @@ const useHomePage = () => {
   const [text, setText] = useState('')
   const [currentTextCase, setCurrentTextCase] = useState<TextCase | undefined>()
 
-  const handleTextChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleTextChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     setText(event.target.value)
     setCurrentTextCase(undefined)
   }
