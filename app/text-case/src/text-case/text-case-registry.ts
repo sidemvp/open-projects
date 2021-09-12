@@ -5,7 +5,7 @@ import { kebabCase } from 'mvp-app-text-case/src/text-case/kebab-case'
 import { lowerCase } from 'mvp-app-text-case/src/text-case/lower-case'
 import { sentenceCase } from 'mvp-app-text-case/src/text-case/sentence-case'
 import { snakeCase } from 'mvp-app-text-case/src/text-case/snake-case'
-import { TextCase } from 'mvp-app-text-case/src/text-case/text-case-type'
+import { TextCase } from 'mvp-app-text-case/src/text-case/text-case'
 import { upperCase } from 'mvp-app-text-case/src/text-case/upper-case'
 
 export const allTextCases: TextCase[] = [

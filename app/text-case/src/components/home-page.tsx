@@ -3,8 +3,8 @@ import { NextPage } from 'next'
 import NextHead from 'next/head'
 import { ChangeEvent, FunctionComponent, useState } from 'react'
 
+import { TextCase } from 'mvp-app-text-case/src/text-case/text-case'
 import { allTextCases } from 'mvp-app-text-case/src/text-case/text-case-registry'
-import { TextCase } from 'mvp-app-text-case/src/text-case/text-case-type'
 import { AppFooter } from 'mvp-common-components/src/app-footer'
 
 interface TextInputProps {
