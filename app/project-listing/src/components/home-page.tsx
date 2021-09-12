@@ -11,6 +11,8 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: FunctionComponent<ProjectCardProps> = ({ project }) => {
+  const projectUrl = `https://${project.id}.mvp.onl`
+
   return (
     <LinkBox padding={4}>
       <Flex>
@@ -21,13 +23,13 @@ const ProjectCard: FunctionComponent<ProjectCardProps> = ({ project }) => {
         />
         <Stack spacing={1} marginLeft={4}>
           <Heading size='md'>
-            <LinkOverlay href={project.url} isExternal>
+            <LinkOverlay href={projectUrl} isExternal>
               {project.name}
             </LinkOverlay>
           </Heading>
           <Text fontSize='md'>{project.description}</Text>
-          <Link href={project.url} color='primary.400' isExternal>
-            {project.url}
+          <Link href={projectUrl} color='primary.400' isExternal>
+            {projectUrl}
           </Link>
         </Stack>
       </Flex>
@@ -48,7 +50,7 @@ export const HomePage: NextPage = () => {
             <Text fontSize='xl'>We make side project MVPs.</Text>
           </Stack>
           {allProjects.map((project) => (
-            <ProjectCard key={project.name} project={project} />
+            <ProjectCard key={project.id} project={project} />
           ))}
         </Stack>
       </Container>
