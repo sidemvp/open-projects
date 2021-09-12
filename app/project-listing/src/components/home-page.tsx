@@ -3,8 +3,8 @@ import { NextPage } from 'next'
 import NextHead from 'next/head'
 import { FunctionComponent } from 'react'
 
+import { Project } from 'mvp-app-project-listing/src/project/project'
 import { allProjects } from 'mvp-app-project-listing/src/project/project-registry'
-import { Project } from 'mvp-app-project-listing/src/project/project-type'
 
 interface ProjectCardProps {
   readonly project: Project

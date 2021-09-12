@@ -1,6 +1,6 @@
 import { CgFormatUppercase } from 'react-icons/cg'
 
-import { Project } from 'mvp-app-project-listing/src/project/project-type'
+import { Project } from 'mvp-app-project-listing/src/project/project'
 
 export const allProjects: Project[] = [
   {
