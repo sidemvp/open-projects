@@ -11,6 +11,7 @@ export const AppFooter: FunctionComponent = () => {
       <Link href={`https://${envDomain}.sidemvp.com`} color='primary.400' isExternal>
         SideMVP
       </Link>
+      {'.'}
     </Text>
   )
 }
