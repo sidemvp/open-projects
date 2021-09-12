@@ -7,7 +7,7 @@ import { Project } from 'mvp-app-project-listing/src/project/project'
 import { allProjects } from 'mvp-app-project-listing/src/project/project-registry'
 
 const resolveUrl = (url: string) => {
-  const envDomain = process.env.VERCEL_ENV === 'preview' ? 'demo' : undefined
+  const envDomain = process.env.NEXT_PUBLIC_ENV_DOMAIN
 
   return `https://${envDomain ? [envDomain, url].join('.') : url}`
 }

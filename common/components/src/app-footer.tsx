@@ -3,7 +3,7 @@ import { FunctionComponent } from 'react'
 import { AiOutlineCoffee } from 'react-icons/ai'
 
 export const AppFooter: FunctionComponent = () => {
-  const envDomain = process.env.VERCEL_ENV === 'preview' ? 'demo' : 'www'
+  const envDomain = process.env.NEXT_PUBLIC_ENV_DOMAIN ?? 'www'
 
   return (
     <Text fontSize='sm' fontWeight='medium' textAlign='center' paddingY={16}>
