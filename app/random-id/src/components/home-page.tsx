@@ -34,7 +34,7 @@ export const HomePage: NextPage = () => {
             {id}
           </Box>
           <Flex wrap='wrap' justifyContent='center'>
-            <Button onClick={handleGenerateClick} margin={1}>
+            <Button onClick={handleGenerateClick} colorScheme='primary' margin={1}>
               Generate
             </Button>
           </Flex>
