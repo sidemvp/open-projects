@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react'
 import { AppFooter } from 'mvp-common-components/src/app-footer'
 
 const useHomePage = () => {
-  const [id, setId] = useState('')
+  const [id, setId] = useState<string | undefined>()
 
   const generateId = () => {
     setId(nanoid())
@@ -35,7 +35,7 @@ export const HomePage: NextPage = () => {
             <Text fontSize='xl'>Generate random id with custom options.</Text>
           </Stack>
           <Box fontWeight='medium' borderRadius='md' shadow='md' paddingX={4} paddingY={3}>
-            {id}
+            {id ?? <>&nbsp;</>}
           </Box>
           <Flex wrap='wrap' justifyContent='center'>
             <Button onClick={generateId} colorScheme='primary' margin={1}>
