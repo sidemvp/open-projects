@@ -8,7 +8,7 @@ export const AppFooter: FunctionComponent = () => {
   return (
     <Text fontSize='sm' fontWeight='medium' textAlign='center' paddingY={16}>
       Made with <Icon as={AiOutlineCoffee} boxSize={6} marginBottom={2} /> by{' '}
-      <Link href={`https://${envDomain}.sidemvp.com`} color='primary.400'>
+      <Link href={`https://${envDomain}.sidemvp.com`} color='primary.500'>
         SideMVP
       </Link>
       {'.'}
