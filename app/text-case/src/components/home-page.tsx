@@ -5,6 +5,7 @@ import { ChangeEvent, FunctionComponent, useState } from 'react'
 
 import { allTextCases } from 'mvp-app-text-case/src/text-case/text-case-registry'
 import { TextCase } from 'mvp-app-text-case/src/text-case/text-case-type'
+import { AppFooter } from 'mvp-common-components/src/app-footer'
 
 interface TextInputProps {
   readonly text: string
@@ -101,6 +102,7 @@ export const HomePage: NextPage = () => {
             handleTextClear={handleTextClear}
           />
         </Stack>
+        <AppFooter />
       </Container>
     </>
   )
