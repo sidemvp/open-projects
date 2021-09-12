@@ -5,6 +5,7 @@ importers:
   .:
     specifiers:
       '@types/node': 16.9.1
+      '@types/react': 17.0.20
       '@typescript-eslint/eslint-plugin': 4.31.0
       '@typescript-eslint/parser': 4.31.0
       babel-eslint: 10.1.0
@@ -24,6 +25,7 @@ importers:
       react: 17.0.2
     devDependencies:
       '@types/node': 16.9.1
+      '@types/react': 17.0.20
       '@typescript-eslint/eslint-plugin': 4.31.0_ae4feb1ae2dfa3376bbbfb89e137cd6b
       '@typescript-eslint/parser': 4.31.0_eslint@7.32.0
       babel-eslint: 10.1.0_eslint@7.32.0
