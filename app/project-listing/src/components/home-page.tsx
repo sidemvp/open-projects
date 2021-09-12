@@ -23,7 +23,7 @@ const ProjectCard: FunctionComponent<ProjectCardProps> = ({ project }) => {
     <LinkBox padding={4}>
       <Flex>
         <Avatar
-          icon={<Icon as={project.icon} color={`${project.primaryColor}.500`} boxSize={12} />}
+          icon={<Icon as={project.icon} color={`${project.primaryColor}.500`} boxSize={project.iconSize} />}
           background='white'
           shadow='md'
         />

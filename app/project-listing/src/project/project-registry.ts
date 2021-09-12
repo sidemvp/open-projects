@@ -8,6 +8,7 @@ export const allProjects: Project[] = [
     name: 'Text Case',
     description: 'Change text to any case.',
     icon: CgFormatUppercase,
+    iconSize: 12,
     primaryColor: 'blue',
   },
 ]

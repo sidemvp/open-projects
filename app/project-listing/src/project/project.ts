@@ -7,5 +7,6 @@ export interface Project {
   readonly name: string
   readonly description: string
   readonly icon: IconType
+  readonly iconSize: number
   readonly primaryColor: ColorToken
 }
