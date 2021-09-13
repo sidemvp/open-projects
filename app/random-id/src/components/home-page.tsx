@@ -1,10 +1,14 @@
-import { Box, Button, Checkbox, Container, Flex, Heading, Stack, Text } from '@chakra-ui/react'
+import { Button, Checkbox, Code, Flex, Stack } from '@chakra-ui/react'
 import { NextPage } from 'next'
 import NextHead from 'next/head'
 import { FunctionComponent, useEffect, useState } from 'react'
+import { FaGithub } from 'react-icons/fa'
 
 import { generateId, GenerateIdOptions, getDefaultOptions } from 'mvp-app-random-id/src/components/id-generator'
-import { AppFooter } from 'mvp-common-components/src/app-footer'
+import { PageFooter } from 'mvp-common-components/src/page-footer'
+import { PageHeader } from 'mvp-common-components/src/page-header'
+import { PageLayout } from 'mvp-common-components/src/page-layout'
+import { SocialLink } from 'mvp-common-components/src/social-link'
 
 interface OptionGroupProps {
   readonly options: GenerateIdOptions
@@ -16,10 +20,20 @@ const OptionGroup: FunctionComponent<OptionGroupProps> = ({ options, setOptions 
 
   return (
     <>
-      <Checkbox isChecked={hasLetters} onChange={() => setOptions({ ...options, hasLetters: !hasLetters })} margin={2}>
+      <Checkbox
+        isChecked={hasLetters}
+        onChange={() => setOptions({ ...options, hasLetters: !hasLetters })}
+        margin={1}
+        padding={1}
+      >
         Letters
       </Checkbox>
-      <Checkbox isChecked={hasNumbers} onChange={() => setOptions({ ...options, hasNumbers: !hasNumbers })} margin={2}>
+      <Checkbox
+        isChecked={hasNumbers}
+        onChange={() => setOptions({ ...options, hasNumbers: !hasNumbers })}
+        margin={1}
+        padding={1}
+      >
         Numbers
       </Checkbox>
     </>
@@ -49,24 +63,27 @@ export const HomePage: NextPage = () => {
       <NextHead>
         <title>Random ID</title>
       </NextHead>
-      <Container maxWidth='container.lg' marginY={6}>
+      <PageLayout>
+        <PageHeader
+          title='Random ID'
+          subtitle='Generate random id with custom options.'
+          links={
+            <SocialLink url='https://github.com/sidemvp/open-projects/tree/develop/app/random-id' icon={FaGithub} />
+          }
+        />
         <Stack spacing={4}>
-          <Stack spacing={1}>
-            <Heading>Random ID</Heading>
-            <Text fontSize='xl'>Generate random id with custom options.</Text>
-          </Stack>
-          <Box fontWeight='medium' borderRadius='md' shadow='md' paddingX={4} paddingY={3}>
+          <Code fontSize='lg' borderRadius='md' shadow='md' paddingX={5} paddingY={3}>
             {id ?? <>&nbsp;</>}
-          </Box>
-          <Flex wrap='wrap' justifyContent='center'>
+          </Code>
+          <Flex flexDirection={{ base: 'column', sm: 'row' }} wrap='wrap' justifyContent='center'>
             <Button onClick={setRandomId} colorScheme='primary' margin={2}>
               Generate
             </Button>
             <OptionGroup options={options} setOptions={setOptions} />
           </Flex>
         </Stack>
-        <AppFooter />
-      </Container>
+        <PageFooter />
+      </PageLayout>
     </>
   )
 }

@@ -1,11 +1,15 @@
-import { Button, Container, Flex, Heading, Stack, Text, Textarea } from '@chakra-ui/react'
+import { Button, Flex, Stack, Textarea } from '@chakra-ui/react'
 import { NextPage } from 'next'
 import NextHead from 'next/head'
 import { ChangeEvent, FunctionComponent, useState } from 'react'
+import { FaGithub } from 'react-icons/fa'
 
 import { TextCase } from 'mvp-app-text-case/src/text-case/text-case'
 import { allTextCases } from 'mvp-app-text-case/src/text-case/text-case-registry'
-import { AppFooter } from 'mvp-common-components/src/app-footer'
+import { PageFooter } from 'mvp-common-components/src/page-footer'
+import { PageHeader } from 'mvp-common-components/src/page-header'
+import { PageLayout } from 'mvp-common-components/src/page-layout'
+import { SocialLink } from 'mvp-common-components/src/social-link'
 
 interface TextInputProps {
   readonly text: string
@@ -41,9 +45,8 @@ const ActionGroup: FunctionComponent<ActionGroupProps> = ({
       {allTextCases.map((textCase) => (
         <Button
           key={textCase.name}
-          isActive={currentTextCase === textCase}
           onClick={handleTextCaseToggle(textCase)}
-          colorScheme='primary'
+          colorScheme={currentTextCase === textCase ? 'primary' : 'background'}
           width={160}
           margin={2}
         >
@@ -68,6 +71,7 @@ const useHomePage = () => {
 
   const handleTextClear = () => {
     setText('')
+    setCurrentTextCase(undefined)
   }
 
   const handleTextCaseToggle = (textCase: TextCase) => () => {
@@ -89,12 +93,15 @@ export const HomePage: NextPage = () => {
       <NextHead>
         <title>Text Case</title>
       </NextHead>
-      <Container maxWidth='container.lg' marginY={6}>
+      <PageLayout>
+        <PageHeader
+          title='Text Case'
+          subtitle='Change text to any case.'
+          links={
+            <SocialLink url='https://github.com/sidemvp/open-projects/tree/develop/app/text-case' icon={FaGithub} />
+          }
+        />
         <Stack spacing={4}>
-          <Stack spacing={1}>
-            <Heading>Text Case</Heading>
-            <Text fontSize='xl'>Change text to any case.</Text>
-          </Stack>
           <TextInput text={text} currentTextCase={currentTextCase} handleTextChange={handleTextChange} />
           <ActionGroup
             currentTextCase={currentTextCase}
@@ -102,8 +109,8 @@ export const HomePage: NextPage = () => {
             handleTextClear={handleTextClear}
           />
         </Stack>
-        <AppFooter />
-      </Container>
+        <PageFooter />
+      </PageLayout>
     </>
   )
 }

@@ -1,10 +1,15 @@
-import { Avatar, Container, Flex, Heading, Icon, Link, LinkBox, LinkOverlay, Stack, Text } from '@chakra-ui/react'
+import { Avatar, Flex, Heading, Icon, Link, LinkBox, LinkOverlay, Stack, Text } from '@chakra-ui/react'
 import { NextPage } from 'next'
 import NextHead from 'next/head'
 import { FunctionComponent } from 'react'
+import { FaGithub, FaTwitter } from 'react-icons/fa'
 
 import { Project } from 'mvp-app-project-listing/src/project/project'
 import { allProjects } from 'mvp-app-project-listing/src/project/project-registry'
+import { PageFooter } from 'mvp-common-components/src/page-footer'
+import { PageHeader } from 'mvp-common-components/src/page-header'
+import { PageLayout } from 'mvp-common-components/src/page-layout'
+import { SocialLink } from 'mvp-common-components/src/social-link'
 
 const resolveUrl = (url: string) => {
   const envDomain = process.env.NEXT_PUBLIC_ENV_DOMAIN
@@ -20,7 +25,7 @@ const ProjectCard: FunctionComponent<ProjectCardProps> = ({ project }) => {
   const projectUrl = resolveUrl(`${project.id}.mvp.onl`)
 
   return (
-    <LinkBox padding={4}>
+    <LinkBox>
       <Flex>
         <Avatar
           icon={<Icon as={project.icon} color={`${project.primaryColor}.500`} boxSize={project.iconSize} />}
@@ -49,17 +54,24 @@ export const HomePage: NextPage = () => {
       <NextHead>
         <title>SideMVP</title>
       </NextHead>
-      <Container maxWidth='container.lg' marginY={6}>
-        <Stack spacing={4}>
-          <Stack spacing={1}>
-            <Heading>SideMVP</Heading>
-            <Text fontSize='xl'>We make side project MVPs.</Text>
-          </Stack>
+      <PageLayout>
+        <PageHeader
+          title='SideMVP'
+          subtitle='We make side project MVPs.'
+          links={
+            <>
+              <SocialLink url='https://github.com/sidemvp/open-projects' icon={FaGithub} />
+              <SocialLink url='https://twitter.com/sidemvp' icon={FaTwitter} />
+            </>
+          }
+        />
+        <Stack spacing={6} padding={6}>
           {allProjects.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
         </Stack>
-      </Container>
+        <PageFooter />
+      </PageLayout>
     </>
   )
 }
