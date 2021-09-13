@@ -34,12 +34,10 @@ const ProjectCard: FunctionComponent<ProjectCardProps> = ({ project }) => {
         />
         <Stack spacing={1} marginLeft={4}>
           <Heading size='md'>
-            <LinkOverlay href={projectUrl} isExternal>
-              {project.name}
-            </LinkOverlay>
+            <LinkOverlay href={projectUrl}>{project.name}</LinkOverlay>
           </Heading>
           <Text fontSize='md'>{project.description}</Text>
-          <Link href={projectUrl} color='primary.500' isExternal>
+          <Link href={projectUrl} color='primary.500'>
             {projectUrl}
           </Link>
         </Stack>
