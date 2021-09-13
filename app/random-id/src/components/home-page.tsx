@@ -1,4 +1,16 @@
-import { Button, Checkbox, Code, Flex, Stack } from '@chakra-ui/react'
+import {
+  Box,
+  Button,
+  Checkbox,
+  Code,
+  Flex,
+  Slider,
+  SliderFilledTrack,
+  SliderThumb,
+  SliderTrack,
+  Stack,
+  Text,
+} from '@chakra-ui/react'
 import { NextPage } from 'next'
 import NextHead from 'next/head'
 import { FunctionComponent, useEffect, useState } from 'react'
@@ -10,16 +22,43 @@ import { PageHeader } from 'mvp-common-components/src/page-header'
 import { PageLayout } from 'mvp-common-components/src/page-layout'
 import { SocialLink } from 'mvp-common-components/src/social-link'
 
+const SliderContent: FunctionComponent = () => {
+  return (
+    <>
+      <SliderTrack>
+        <SliderFilledTrack />
+      </SliderTrack>
+      <SliderThumb boxSize={4} />
+    </>
+  )
+}
+
 interface OptionGroupProps {
   readonly options: GenerateIdOptions
   readonly setOptions: (nextOptions: GenerateIdOptions) => void
 }
 
 const OptionGroup: FunctionComponent<OptionGroupProps> = ({ options, setOptions }) => {
-  const { hasLetters, hasNumbers } = options
+  const { hasLetters, hasNumbers, length } = options
 
   return (
     <>
+      <Box margin={2}>
+        <Text>
+          Length: <strong>{length}</strong>
+        </Text>
+        <Slider
+          value={length}
+          onChange={(nextLength) => setOptions({ ...options, length: nextLength })}
+          min={10}
+          max={100}
+          step={1}
+          width='150px'
+          aria-label='Length'
+        >
+          <SliderContent />
+        </Slider>
+      </Box>
       <Checkbox
         isChecked={hasLetters}
         onChange={() => setOptions({ ...options, hasLetters: !hasLetters })}
