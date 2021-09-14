@@ -97,9 +97,7 @@ export const HomePage: NextPage = () => {
         <PageHeader
           title='Text Case'
           subtitle='Change text to any case.'
-          links={
-            <SocialLink url='https://github.com/sidemvp/open-projects/tree/develop/app/text-case' icon={FaGithub} />
-          }
+          links={<SocialLink url='https://github.com/sidemvp/open-projects/tree/main/app/text-case' icon={FaGithub} />}
         />
         <Stack spacing={4}>
           <TextInput text={text} currentTextCase={currentTextCase} handleTextChange={handleTextChange} />

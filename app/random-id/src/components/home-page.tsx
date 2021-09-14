@@ -106,9 +106,7 @@ export const HomePage: NextPage = () => {
         <PageHeader
           title='Random ID'
           subtitle='Generate random id with custom options.'
-          links={
-            <SocialLink url='https://github.com/sidemvp/open-projects/tree/develop/app/random-id' icon={FaGithub} />
-          }
+          links={<SocialLink url='https://github.com/sidemvp/open-projects/tree/main/app/random-id' icon={FaGithub} />}
         />
         <Stack spacing={4}>
           <Code fontSize='lg' borderRadius='md' shadow='md' paddingX={5} paddingY={3}>
