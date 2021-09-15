@@ -1,5 +1,6 @@
 import { CgFormatUppercase } from 'react-icons/cg'
 import { FaRandom } from 'react-icons/fa'
+import { RiShieldFlashLine } from 'react-icons/ri'
 
 import { Project } from 'mvp-app-project-listing/src/project/project'
 
@@ -11,6 +12,14 @@ export const allProjects: Project[] = [
     icon: FaRandom,
     iconSize: 7,
     primaryColor: 'purple',
+  },
+  {
+    id: 'secret-message',
+    name: 'Secret Message',
+    description: 'Encrypt/decrypt message within browser.',
+    icon: RiShieldFlashLine,
+    iconSize: 8,
+    primaryColor: 'green',
   },
   {
     id: 'text-case',
