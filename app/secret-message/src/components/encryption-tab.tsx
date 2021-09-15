@@ -1,4 +1,4 @@
-import { Button, Flex, Input, Stack, Textarea } from '@chakra-ui/react'
+import { Button, Flex, Input, Stack, Textarea, useToast } from '@chakra-ui/react'
 import AES from 'crypto-js/aes'
 import { ChangeEvent, FunctionComponent, useState } from 'react'
 
@@ -6,6 +6,7 @@ const useEncryptionTab = () => {
   const [message, setMessage] = useState('')
   const [password, setPassword] = useState('')
   const [encryptedMessage, setEncryptedMessage] = useState('')
+  const toast = useToast()
 
   const handleMessageChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     setMessage(event.target.value)
@@ -21,7 +22,18 @@ const useEncryptionTab = () => {
   }
 
   const handleMessageEncrypt = () => {
-    setEncryptedMessage(AES.encrypt(message, password).toString())
+    try {
+      setEncryptedMessage(AES.encrypt(message, password).toString())
+    } catch (err) {
+      console.error(err)
+
+      toast({
+        description: 'Failed to encrypt message.',
+        status: 'error',
+        position: 'bottom-left',
+        duration: 3000,
+      })
+    }
   }
 
   return {
