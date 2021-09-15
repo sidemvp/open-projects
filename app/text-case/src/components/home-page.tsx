@@ -53,7 +53,7 @@ const ActionGroup: FunctionComponent<ActionGroupProps> = ({
           {textCase.name}
         </Button>
       ))}
-      <Button variant='outline' width={160} margin={2} onClick={handleTextClear}>
+      <Button onClick={handleTextClear} variant='outline' width={160} margin={2}>
         Clear
       </Button>
     </Flex>
@@ -82,11 +82,11 @@ const useHomePage = () => {
     }
   }
 
-  return { text, handleTextChange, handleTextClear, currentTextCase, handleTextCaseToggle }
+  return { text, currentTextCase, handleTextChange, handleTextClear, handleTextCaseToggle }
 }
 
 export const HomePage: NextPage = () => {
-  const { text, handleTextChange, handleTextClear, currentTextCase, handleTextCaseToggle } = useHomePage()
+  const { text, currentTextCase, handleTextChange, handleTextClear, handleTextCaseToggle } = useHomePage()
 
   return (
     <>
