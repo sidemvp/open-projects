@@ -105,6 +105,23 @@ importers:
       next: 11.1.2_01b6e46c81e6fda6a6d233df547d9171
       typescript: 4.4.2
 
+  app/secret-message:
+    specifiers:
+      cross-env: 7.0.3
+      eslint: 7.32.0
+      mvp-common-dev: workspace:0.1.0
+      mvp-common-layout: workspace:0.1.0
+      next: 11.1.2
+      typescript: 4.4.2
+    dependencies:
+      mvp-common-layout: link:../../common/layout
+    devDependencies:
+      cross-env: 7.0.3
+      eslint: 7.32.0
+      mvp-common-dev: link:../../common/dev
+      next: 11.1.2_01b6e46c81e6fda6a6d233df547d9171
+      typescript: 4.4.2
+
   app/text-case:
     specifiers:
       camel-case: 4.1.2
