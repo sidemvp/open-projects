@@ -13,7 +13,7 @@
     "build": "cross-env NODE_ENV=production next build"
   },
   "dependencies": {
-    "mvp-common-components": "workspace:0.1.0"
+    "mvp-common-layout": "workspace:0.1.0"
   },
   "devDependencies": {
     "cross-env": "7.0.3",

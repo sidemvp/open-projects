@@ -6,10 +6,10 @@ import { FaGithub, FaTwitter } from 'react-icons/fa'
 
 import { Project } from 'mvp-app-project-listing/src/project/project'
 import { allProjects } from 'mvp-app-project-listing/src/project/project-registry'
-import { PageFooter } from 'mvp-common-components/src/page-footer'
-import { PageHeader } from 'mvp-common-components/src/page-header'
-import { PageLayout } from 'mvp-common-components/src/page-layout'
-import { SocialLink } from 'mvp-common-components/src/social-link'
+import { PageFooter } from 'mvp-common-layout/src/page-footer'
+import { PageHeader } from 'mvp-common-layout/src/page-header'
+import { PageLayout } from 'mvp-common-layout/src/page-layout'
+import { SocialLink } from 'mvp-common-layout/src/social-link'
 
 const resolveUrl = (url: string) => {
   const envDomain = process.env.NEXT_PUBLIC_ENV_DOMAIN

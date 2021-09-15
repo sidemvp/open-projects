@@ -6,10 +6,10 @@ import { FaGithub } from 'react-icons/fa'
 
 import { TextCase } from 'mvp-app-text-case/src/text-case/text-case'
 import { allTextCases } from 'mvp-app-text-case/src/text-case/text-case-registry'
-import { PageFooter } from 'mvp-common-components/src/page-footer'
-import { PageHeader } from 'mvp-common-components/src/page-header'
-import { PageLayout } from 'mvp-common-components/src/page-layout'
-import { SocialLink } from 'mvp-common-components/src/social-link'
+import { PageFooter } from 'mvp-common-layout/src/page-footer'
+import { PageHeader } from 'mvp-common-layout/src/page-header'
+import { PageLayout } from 'mvp-common-layout/src/page-layout'
+import { SocialLink } from 'mvp-common-layout/src/social-link'
 
 interface TextInputProps {
   readonly text: string

@@ -17,10 +17,10 @@ import { FunctionComponent, useEffect, useState } from 'react'
 import { FaGithub } from 'react-icons/fa'
 
 import { generateId, GenerateIdOptions, getDefaultOptions } from 'mvp-app-random-id/src/components/id-generator'
-import { PageFooter } from 'mvp-common-components/src/page-footer'
-import { PageHeader } from 'mvp-common-components/src/page-header'
-import { PageLayout } from 'mvp-common-components/src/page-layout'
-import { SocialLink } from 'mvp-common-components/src/social-link'
+import { PageFooter } from 'mvp-common-layout/src/page-footer'
+import { PageHeader } from 'mvp-common-layout/src/page-header'
+import { PageLayout } from 'mvp-common-layout/src/page-layout'
+import { SocialLink } from 'mvp-common-layout/src/social-link'
 
 const SliderContent: FunctionComponent = () => {
   return (

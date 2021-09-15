@@ -1,6 +1,6 @@
 import { IconType } from 'react-icons'
 
-import { ColorToken } from 'mvp-common-components/src/app-theme'
+import { ColorToken } from 'mvp-common-layout/src/app-theme'
 
 export interface Project {
   readonly id: string

@@ -17,7 +17,7 @@
     "camel-case": "4.1.2",
     "capital-case": "1.0.4",
     "lower-case": "2.0.2",
-    "mvp-common-components": "workspace:0.1.0",
+    "mvp-common-layout": "workspace:0.1.0",
     "param-case": "3.0.4",
     "sentence-case": "3.0.4",
     "snake-case": "3.0.4",

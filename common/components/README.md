@@ -1,1 +1,0 @@
-# mvp-common-components
