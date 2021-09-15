@@ -13,9 +13,11 @@
     "build": "cross-env NODE_ENV=production next build"
   },
   "dependencies": {
+    "crypto-js": "4.1.1",
     "mvp-common-layout": "workspace:0.1.0"
   },
   "devDependencies": {
+    "@types/crypto-js": "4.0.2",
     "cross-env": "7.0.3",
     "eslint": "7.32.0",
     "mvp-common-dev": "workspace:0.1.0",
