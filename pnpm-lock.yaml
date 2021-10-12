@@ -136,6 +136,7 @@ importers:
       lower-case: 2.0.2
       mvp-common-dev: workspace:0.1.0
       mvp-common-layout: workspace:0.1.0
+      mvp-common-utils: workspace:0.1.0
       next: 11.1.2
       param-case: 3.0.4
       sentence-case: 3.0.4
@@ -148,6 +149,7 @@ importers:
       capital-case: 1.0.4
       lower-case: 2.0.2
       mvp-common-layout: link:../../common/layout
+      mvp-common-utils: link:../../common/utils
       param-case: 3.0.4
       sentence-case: 3.0.4
       snake-case: 3.0.4
@@ -165,6 +167,16 @@ importers:
     specifiers: {}
 
   common/layout:
+    specifiers:
+      eslint: 7.32.0
+      mvp-common-dev: workspace:0.1.0
+      typescript: 4.4.2
+    devDependencies:
+      eslint: 7.32.0
+      mvp-common-dev: link:../dev
+      typescript: 4.4.2
+
+  common/utils:
     specifiers:
       eslint: 7.32.0
       mvp-common-dev: workspace:0.1.0

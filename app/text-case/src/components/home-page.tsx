@@ -1,4 +1,4 @@
-import { Button, Flex, Stack, Textarea } from '@chakra-ui/react'
+import { Button, Flex, Stack, Textarea, useToast } from '@chakra-ui/react'
 import { NextPage } from 'next'
 import NextHead from 'next/head'
 import { ChangeEvent, FunctionComponent, useState } from 'react'
@@ -10,6 +10,7 @@ import { PageFooter } from 'mvp-common-layout/src/page-footer'
 import { PageHeader } from 'mvp-common-layout/src/page-header'
 import { PageLayout } from 'mvp-common-layout/src/page-layout'
 import { SocialLink } from 'mvp-common-layout/src/social-link'
+import { copyText } from 'mvp-common-utils/src/clipboard'
 
 interface TextInputProps {
   readonly text: string
@@ -30,15 +31,19 @@ const TextInput: FunctionComponent<TextInputProps> = ({ text, currentTextCase, h
 }
 
 interface ActionGroupProps {
+  readonly text: string
   readonly currentTextCase: TextCase | undefined
   readonly handleTextCaseToggle: (textCase: TextCase) => () => void
+  readonly handleTextCopy: (text: string) => () => void
   readonly handleTextClear: () => void
 }
 
 const ActionGroup: FunctionComponent<ActionGroupProps> = ({
+  text,
   currentTextCase,
   handleTextCaseToggle,
   handleTextClear,
+  handleTextCopy,
 }) => {
   return (
     <Flex wrap='wrap' justifyContent='center'>
@@ -53,6 +58,14 @@ const ActionGroup: FunctionComponent<ActionGroupProps> = ({
           {textCase.name}
         </Button>
       ))}
+      <Button
+        onClick={handleTextCopy(text && currentTextCase ? currentTextCase.transform(text) : text)}
+        variant='outline'
+        width={160}
+        margin={2}
+      >
+        Copy
+      </Button>
       <Button onClick={handleTextClear} variant='outline' width={160} margin={2}>
         Clear
       </Button>
@@ -61,6 +74,7 @@ const ActionGroup: FunctionComponent<ActionGroupProps> = ({
 }
 
 const useHomePage = () => {
+  const toast = useToast()
   const [text, setText] = useState('')
   const [currentTextCase, setCurrentTextCase] = useState<TextCase | undefined>()
 
@@ -82,11 +96,22 @@ const useHomePage = () => {
     }
   }
 
-  return { text, currentTextCase, handleTextChange, handleTextClear, handleTextCaseToggle }
+  const handleTextCopy = (text: string) => () => {
+    copyText(text)
+    toast({
+      title: 'Text copied.',
+      status: 'success',
+      duration: 1000,
+      isClosable: true,
+    })
+  }
+
+  return { text, currentTextCase, handleTextChange, handleTextClear, handleTextCopy, handleTextCaseToggle }
 }
 
 export const HomePage: NextPage = () => {
-  const { text, currentTextCase, handleTextChange, handleTextClear, handleTextCaseToggle } = useHomePage()
+  const { text, currentTextCase, handleTextChange, handleTextClear, handleTextCopy, handleTextCaseToggle } =
+    useHomePage()
 
   return (
     <>
@@ -102,8 +127,10 @@ export const HomePage: NextPage = () => {
         <Stack spacing={4}>
           <TextInput text={text} currentTextCase={currentTextCase} handleTextChange={handleTextChange} />
           <ActionGroup
+            text={text}
             currentTextCase={currentTextCase}
             handleTextCaseToggle={handleTextCaseToggle}
+            handleTextCopy={handleTextCopy}
             handleTextClear={handleTextClear}
           />
         </Stack>
