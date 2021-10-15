@@ -13,14 +13,14 @@ import { SocialLink } from 'mvp-common-layout/src/social-link'
 import { copyText } from 'mvp-common-utils/src/clipboard'
 
 interface TextInputProps {
-  readonly text: string
+  readonly textToDisplay: string
   readonly handleTextChange: (event: ChangeEvent<HTMLTextAreaElement>) => void
 }
 
-const TextInput: FunctionComponent<TextInputProps> = ({ text, handleTextChange }) => {
+const TextInput: FunctionComponent<TextInputProps> = ({ textToDisplay, handleTextChange }) => {
   return (
     <Textarea
-      value={text}
+      value={textToDisplay}
       onChange={handleTextChange}
       rows={8}
       placeholder='Type or paste your text here'
@@ -55,12 +55,7 @@ const ActionGroup: FunctionComponent<ActionGroupProps> = ({
           {textCase.name}
         </Button>
       ))}
-      <Button
-        onClick={handleTextCopy}
-        variant='outline'
-        width={160}
-        margin={2}
-      >
+      <Button onClick={handleTextCopy} variant='outline' width={160} margin={2}>
         Copy
       </Button>
       <Button onClick={handleTextClear} variant='outline' width={160} margin={2}>
@@ -123,7 +118,7 @@ export const HomePage: NextPage = () => {
           links={<SocialLink url='https://github.com/sidemvp/open-projects/tree/main/app/text-case' icon={FaGithub} />}
         />
         <Stack spacing={4}>
-          <TextInput text={textToDisplay} handleTextChange={handleTextChange} />
+          <TextInput textToDisplay={textToDisplay} handleTextChange={handleTextChange} />
           <ActionGroup
             currentTextCase={currentTextCase}
             handleTextCaseToggle={handleTextCaseToggle}
