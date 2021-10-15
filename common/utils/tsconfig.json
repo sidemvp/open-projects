@@ -3,14 +3,12 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "mvp-common-layout/*": ["*"]
+      "mvp-common-utils/*": ["*"]
     }
   },
   "include": [
     "src/**/*.ts",
-    "src/**/*.tsx",
-    "node_modules/mvp-*/src/**/*.ts",
-    "node_modules/mvp-*/src/**/*.tsx"
+    "node_modules/mvp-*/src/**/*.ts"
   ],
   "exclude": []
 }

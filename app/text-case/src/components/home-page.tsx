@@ -14,14 +14,13 @@ import { copyText } from 'mvp-common-utils/src/clipboard'
 
 interface TextInputProps {
   readonly text: string
-  readonly currentTextCase: TextCase | undefined
   readonly handleTextChange: (event: ChangeEvent<HTMLTextAreaElement>) => void
 }
 
-const TextInput: FunctionComponent<TextInputProps> = ({ text, currentTextCase, handleTextChange }) => {
+const TextInput: FunctionComponent<TextInputProps> = ({ text, handleTextChange }) => {
   return (
     <Textarea
-      value={text && currentTextCase ? currentTextCase.transform(text) : text}
+      value={text}
       onChange={handleTextChange}
       rows={8}
       placeholder='Type or paste your text here'
@@ -31,15 +30,13 @@ const TextInput: FunctionComponent<TextInputProps> = ({ text, currentTextCase, h
 }
 
 interface ActionGroupProps {
-  readonly text: string
   readonly currentTextCase: TextCase | undefined
   readonly handleTextCaseToggle: (textCase: TextCase) => () => void
-  readonly handleTextCopy: (text: string) => () => void
+  readonly handleTextCopy: () => void
   readonly handleTextClear: () => void
 }
 
 const ActionGroup: FunctionComponent<ActionGroupProps> = ({
-  text,
   currentTextCase,
   handleTextCaseToggle,
   handleTextClear,
@@ -59,7 +56,7 @@ const ActionGroup: FunctionComponent<ActionGroupProps> = ({
         </Button>
       ))}
       <Button
-        onClick={handleTextCopy(text && currentTextCase ? currentTextCase.transform(text) : text)}
+        onClick={handleTextCopy}
         variant='outline'
         width={160}
         margin={2}
@@ -77,6 +74,7 @@ const useHomePage = () => {
   const toast = useToast()
   const [text, setText] = useState('')
   const [currentTextCase, setCurrentTextCase] = useState<TextCase | undefined>()
+  const textToDisplay = text && currentTextCase ? currentTextCase.transform(text) : text
 
   const handleTextChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     setText(event.target.value)
@@ -96,8 +94,8 @@ const useHomePage = () => {
     }
   }
 
-  const handleTextCopy = (text: string) => () => {
-    copyText(text)
+  const handleTextCopy = () => {
+    copyText(textToDisplay)
     toast({
       title: 'Text copied.',
       status: 'success',
@@ -106,11 +104,11 @@ const useHomePage = () => {
     })
   }
 
-  return { text, currentTextCase, handleTextChange, handleTextClear, handleTextCopy, handleTextCaseToggle }
+  return { currentTextCase, textToDisplay, handleTextChange, handleTextClear, handleTextCopy, handleTextCaseToggle }
 }
 
 export const HomePage: NextPage = () => {
-  const { text, currentTextCase, handleTextChange, handleTextClear, handleTextCopy, handleTextCaseToggle } =
+  const { currentTextCase, textToDisplay, handleTextChange, handleTextClear, handleTextCopy, handleTextCaseToggle } =
     useHomePage()
 
   return (
@@ -125,9 +123,8 @@ export const HomePage: NextPage = () => {
           links={<SocialLink url='https://github.com/sidemvp/open-projects/tree/main/app/text-case' icon={FaGithub} />}
         />
         <Stack spacing={4}>
-          <TextInput text={text} currentTextCase={currentTextCase} handleTextChange={handleTextChange} />
+          <TextInput text={textToDisplay} handleTextChange={handleTextChange} />
           <ActionGroup
-            text={text}
             currentTextCase={currentTextCase}
             handleTextCaseToggle={handleTextCaseToggle}
             handleTextCopy={handleTextCopy}
