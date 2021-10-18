@@ -92,11 +92,13 @@ importers:
       eslint: 7.32.0
       mvp-common-dev: workspace:0.1.0
       mvp-common-layout: workspace:0.1.0
+      mvp-common-utils: workspace:0.1.0
       nanoid: 3.1.25
       next: 11.1.2
       typescript: 4.4.2
     dependencies:
       mvp-common-layout: link:../../common/layout
+      mvp-common-utils: link:../../common/utils
       nanoid: 3.1.25
     devDependencies:
       cross-env: 7.0.3

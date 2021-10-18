@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "mvp-common-layout": "workspace:0.1.0",
+    "mvp-common-utils": "workspace:0.1.0",
     "nanoid": "3.1.25"
   },
   "devDependencies": {

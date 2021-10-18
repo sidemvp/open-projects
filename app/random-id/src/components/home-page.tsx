@@ -10,6 +10,7 @@ import {
   SliderTrack,
   Stack,
   Text,
+  useToast,
 } from '@chakra-ui/react'
 import { NextPage } from 'next'
 import NextHead from 'next/head'
@@ -21,6 +22,7 @@ import { PageFooter } from 'mvp-common-layout/src/page-footer'
 import { PageHeader } from 'mvp-common-layout/src/page-header'
 import { PageLayout } from 'mvp-common-layout/src/page-layout'
 import { SocialLink } from 'mvp-common-layout/src/social-link'
+import { copyText } from 'mvp-common-utils/src/clipboard'
 
 const SliderContent: FunctionComponent = () => {
   return (
@@ -80,6 +82,7 @@ const OptionGroup: FunctionComponent<OptionGroupProps> = ({ options, setOptions 
 }
 
 const useHomePage = () => {
+  const toast = useToast()
   const [id, setId] = useState<string | undefined>()
   const [options, setOptions] = useState<GenerateIdOptions>(getDefaultOptions)
 
@@ -87,15 +90,27 @@ const useHomePage = () => {
     setId(generateId(options))
   }
 
+  const handleTextCopy = () => {
+    if (id) {
+      copyText(id)
+      toast({
+        description: 'Id copied.',
+        status: 'success',
+        duration: 1000,
+        isClosable: true,
+      })
+    }
+  }
+
   useEffect(() => {
     setId(generateId(options))
   }, [options])
 
-  return { id, options, setOptions, setRandomId }
+  return { id, options, setOptions, setRandomId, handleTextCopy }
 }
 
 export const HomePage: NextPage = () => {
-  const { id, options, setOptions, setRandomId } = useHomePage()
+  const { id, options, setOptions, setRandomId, handleTextCopy } = useHomePage()
 
   return (
     <>
@@ -115,6 +130,9 @@ export const HomePage: NextPage = () => {
           <Flex flexDirection={{ base: 'column', sm: 'row' }} wrap='wrap' justifyContent='center'>
             <Button onClick={setRandomId} colorScheme='primary' margin={2}>
               Generate
+            </Button>
+            <Button onClick={handleTextCopy} variant='outline' width={160} margin={2}>
+              Copy
             </Button>
             <OptionGroup options={options} setOptions={setOptions} />
           </Flex>
