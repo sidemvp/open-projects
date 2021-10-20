@@ -8,6 +8,7 @@ import { copyText } from 'mvp-common-utils/src/clipboard'
 const useHandleMessageDecrypt = (message: string, password: string) => {
   const [decryptedMessage, setDecryptedMessage] = useState('')
   const toast = useToast()
+
   const handleMessageDecrypt = () => {
     try {
       setDecryptedMessage(AES.decrypt(message, password).toString(Utf8))
@@ -22,6 +23,7 @@ const useHandleMessageDecrypt = (message: string, password: string) => {
       })
     }
   }
+
   return { decryptedMessage, setDecryptedMessage, handleMessageDecrypt }
 }
 

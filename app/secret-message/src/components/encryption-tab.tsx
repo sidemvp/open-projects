@@ -7,6 +7,7 @@ import { copyText } from 'mvp-common-utils/src/clipboard'
 const useHandleMessageEncrypt = (message: string, password: string) => {
   const [encryptedMessage, setEncryptedMessage] = useState('')
   const toast = useToast()
+
   const handleMessageEncrypt = () => {
     try {
       setEncryptedMessage(AES.encrypt(message, password).toString())
@@ -21,6 +22,7 @@ const useHandleMessageEncrypt = (message: string, password: string) => {
       })
     }
   }
+
   return { encryptedMessage, setEncryptedMessage, handleMessageEncrypt }
 }
 
